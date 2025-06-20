@@ -1,0 +1,86 @@
+{
+  "pipelineType": "V1",
+  "name": "demo-pipeline",
+  "roleArn": "arn:aws:iam::000000000000:role/demo-role",
+  "artifactStore": {
+    "type": "S3",
+    "location": "artifact-bucket"
+  },
+  "stages": [
+    {
+      "name": "Source",
+      "actions": [
+        {
+          "name": "SourceCode",
+          "actionTypeId": {
+            "category": "Source",
+            "owner": "AWS",
+            "provider": "CodeStarSourceConnection",
+            "version": "1"
+          },
+          "outputArtifacts": [
+            {
+              "name": "SourceCode"
+            }
+          ],
+          "configuration": {
+            "ConnectionArn": "FIXME",
+            "FullRepositoryId": "junegunn/fzf",
+            "BranchName": "v0.62.0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Compile",
+      "actions": [
+        {
+          "name": "Compile",
+          "actionTypeId": {
+            "category": "Build",
+            "owner": "AWS",
+            "provider": "CodeBuild",
+            "version": "1"
+          },
+          "inputArtifacts": [
+            {
+              "name": "SourceCode"
+            }
+          ],
+          "outputArtifacts": [
+            {
+              "name": "CompiledBinary"
+            }
+          ],
+          "configuration": {
+            "ProjectName": "demo-compile"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Publish",
+      "actions": [
+        {
+          "name": "Publish",
+          "actionTypeId": {
+            "category": "Deploy",
+            "owner": "AWS",
+            "provider": "S3",
+            "version": "1"
+          },
+          "inputArtifacts": [
+            {
+              "name": "CompiledBinary"
+            }
+          ],
+          "configuration": {
+            "BucketName": "output-bucket",
+            "Extract": "true",
+            "ObjectKey": "fzf"
+          }
+        }
+      ]
+    }
+   ]
+}

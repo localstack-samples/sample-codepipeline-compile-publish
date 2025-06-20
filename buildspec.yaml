@@ -1,0 +1,14 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      golang: 1.22
+  pre_build:
+    commands:
+      - go get
+  build:
+    commands:
+      - go build
+artifacts:
+  files:
+    - fzf
