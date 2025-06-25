@@ -39,7 +39,7 @@ done
 # Retrieve build
 awslocal s3 cp s3://output-bucket/fzf/fzf .
 
-# Test build
+# Try build
 file fzf
 chmod +x fzf
 ./fzf --version

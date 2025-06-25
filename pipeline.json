@@ -24,7 +24,7 @@
             }
           ],
           "configuration": {
-            "ConnectionArn": "FIXME",
+            "ConnectionArn": "arn:aws:codeconnections:eu-central-1:000000000000:connection/abcdef01",
             "FullRepositoryId": "junegunn/fzf",
             "BranchName": "v0.62.0"
           }
@@ -35,7 +35,7 @@
       "name": "Compile",
       "actions": [
         {
-          "name": "Compile",
+          "name": "CompileBinary",
           "actionTypeId": {
             "category": "Build",
             "owner": "AWS",
@@ -62,7 +62,7 @@
       "name": "Publish",
       "actions": [
         {
-          "name": "Publish",
+          "name": "PublishBinary",
           "actionTypeId": {
             "category": "Deploy",
             "owner": "AWS",
