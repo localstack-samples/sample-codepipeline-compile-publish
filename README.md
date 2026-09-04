@@ -4,9 +4,9 @@ This repository contains two sample applications that demonstrate [LocalStack's 
 
 ## Prerequisites
 
-- A valid [LocalStack for AWS license](https://localstack.cloud/pricing), which provides a [`LOCALSTACK_AUTH_TOKEN`](https://docs.localstack.cloud/getting-started/auth-token/) required to run these samples.
+- A valid [LocalStack for AWS license](https://localstack.cloud/pricing), which provides a [`LOCALSTACK_AUTH_TOKEN`](https://docs.localstack.cloud/aws/getting-started/auth-token/) required to run these samples.
 - [Docker](https://docs.docker.com/get-docker/) with access to the Docker socket.
-- [LocalStack CLI](https://docs.localstack.cloud/user-guide/tools/localstack-cli/) (`awslocal`) and AWS CLI.
+- [`lstk` CLI](https://docs.localstack.cloud/aws/developer-tools/running-localstack/lstk/) and AWS CLI, required by `lstk aws`.
 - A GitHub Personal Access Token exported as `CODEPIPELINE_GH_TOKEN` (used by both samples to download source archives).
 - `npm` (required for the CodeArtifact publishing sample).
 
